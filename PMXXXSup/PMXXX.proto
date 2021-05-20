@@ -1,0 +1,151 @@
+Terminator = CR LF;
+
+getIDN {
+    out "*IDN?";
+    in "%\$1[^\n]";
+    ExtraInput = Ignore;
+}
+
+cmd {
+    out "\$1";
+}
+
+setD {
+    out "\$1 %d";
+}
+
+getD {
+    out "\$1?";
+    in "%d";
+    ExtraInput = Ignore;
+}
+
+# Generic
+
+getWF {
+    out "\$2";
+    in "%\$1[^\r\n]";
+}
+
+#  SYSTem subsystem commands
+## BEEPer
+getSYSTemBEEPerState {
+    out "SYSTem:BEEPer:STATe?";
+    in "%d";
+}
+
+## Error
+getSYSTemErrorNext {
+    out "SYSTem:ERRor:NEXT?";
+    in "%d,%s";
+}
+
+## VERSion
+getSYSTemVersion {
+    out "SYSTem:VERSion?";
+    in "%s";
+}
+
+## Date
+getSYSTemDATE {
+    out "SYSTem:DATE?";
+    in "%s";
+}
+
+## Time
+getSYSTemTIME {
+    out "SYSTem:TIME?";
+    in "%s";
+}
+
+## LFR
+getSYSTemLFRenquency {
+    out "SYSTem:LFRenquency?";
+    in "%d";
+}
+
+## SENSor
+getSYSTemSENSorIDN {
+    out "SYSTem:SENSor:IDN?";
+    in "%s";
+}
+
+# STATus subsystem commands
+
+# DISPlay
+setDISPlayBRIGhtness {
+    out "DISPlay:BRIGhtness %f";
+}
+
+getDISPlayBRIGhtness {
+    out "DISPlay:BRIGhtness?";
+    in "%f";
+}
+
+setDISPlayCONTrast {
+    out "DISPlay:CONTrast %f";
+}
+
+getDISPlayCONTrast {
+    out "DISPlay:CONTrast?";
+    in "%f";
+}
+
+# SENSe
+## AVERage
+setSENSeAVERage {
+    out "SENSe:AVERage %d";
+}
+
+getSENSeAVERage {
+    out "SENSe:AVERage?";
+    in "%d";
+}
+
+## CORRection
+setSENSeCORRection {
+    out "SENSe:CORRection:LOSS:INPut:MAGNitude %f";
+}
+
+getSENSeCORRection {
+    out "SENSe:CORRection:LOSS:INPut:MAGNitude?";
+    in "%f";
+}
+
+#  Measurement commands
+MEASurePOWer {
+    in "MEASure:POWer";
+    out "%f";
+}
+MEASureCURRent {
+    in "MEASure:CURRent";
+    out "%f";
+}
+MEASureVOLTage {
+    in "MEASure:VOLTage";
+    out "%f";
+}
+MEASureENERgy {
+    in "MEASure:ENERgy";
+    out "%f";
+}
+MEASureFREQuency {
+    in "MEASure:FREQuency";
+    out "%f";
+}
+MEASurePDENsity {
+    in "MEASure:PDENsity";
+    out "%f";
+}
+MEASureEDENsity {
+    in "MEASure:EDENsity";
+    out "%f";
+}
+MEASureRESistance {
+    in "MEASure:RESistance";
+    out "%f";
+}
+MEASureTEMPerature {
+    in "MEASure:TEMPerature";
+    out "%f";
+}

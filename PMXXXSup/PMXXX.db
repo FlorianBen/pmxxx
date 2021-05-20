@@ -1,0 +1,114 @@
+record(stringin, "$(P)$(R)IDN")
+{
+    field(DESC, "SCPI identification string")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getIDN(39) $(PORT) $(A)")
+    field(PINI, "YES")
+}
+record(waveform, "$(P)$(R)IDNwf")
+{
+    field(DESC, "SCPI identification string")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getIDN(199) $(PORT) $(A)")
+    field(PINI, "YES")
+    field(FTVL, "CHAR")
+    field(NELM, "200")
+}
+
+#  SYSTem subsystem commands
+## BEEPer
+record(bi, "$(P)$(R)BeeperState_RBV")
+{
+    field(DESC, "Beeper state")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getSYSTemBEEPerState() $(PORT) $(A)")
+}
+## VERSion
+record(stringin, "$(P)$(R)SystemVersion")
+{
+    field(DESC, "System version string")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getSYSTemVersion $(PORT) $(A)")
+}
+## Error
+
+## Date
+
+## Time
+
+## SENSor
+record(stringin, "$(P)$(R)SensorIDN")
+{
+    field(DESC, "Sensor identification string")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getSYSTemSENSorIDN $(PORT) $(A)")
+}
+
+# STATus subsystem commands
+
+# DISPlay
+record(ao, "$(P)$(R)Brightness"){
+    field(DESC, "Screen brightness")
+    field(DTYP, "stream")
+    field(FLNK, "$(P)$(R)Brightness_RBV")
+    field(OUT,  "@PMXXX.proto setDISPlayBRIGhtness $(PORT) $(A)")
+}
+
+record(ai, "$(P)$(R)Brightness_RBV"){
+    field(DESC, "Screen brightness")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getDISPlayBRIGhtness $(PORT) $(A)")    
+}
+
+record(ao, "$(P)$(R)Contrast"){
+    field(DESC, "Screen contrast")
+    field(DTYP, "stream")
+    field(FLNK, "$(P)$(R)Contrast_RBV")
+    field(OUT,  "@PMXXX.proto setDISPlayCONTrast $(PORT) $(A)")
+}
+
+record(ai, "$(P)$(R)Contrast_RBV"){
+    field(DESC, "Screen contrast")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getDISPlayCONTrast $(PORT) $(A)")    
+}
+
+# CALibration subsystem commands
+
+# SENSe
+## AVERage
+record(ao, "$(P)$(R)SensorAverage"){
+    field(DESC, "Sensor averaging")
+    field(DTYP, "stream")
+    field(FLNK, "$(P)$(R)SensorAverage_RBV")
+    field(OUT,  "@PMXXX.proto setSENSeAVERage $(PORT) $(A)")
+}
+
+record(ai, "$(P)$(R)SensorAverage_RBV"){
+    field(DESC, "Sensor averaging")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getSENSeAVERage $(PORT) $(A)")    
+}
+
+## Correction
+record(ao, "$(P)$(R)SensorCorrection"){
+    field(DESC, "Sensor correction")
+    field(DTYP, "stream")
+    field(FLNK, "$(P)$(R)SensorAverage_RBV")
+    field(OUT,  "@PMXXX.proto setSENSeCORRection $(PORT) $(A)")
+}
+
+record(ai, "$(P)$(R)SensorCorrection_RBV"){
+    field(DESC, "Sensor correction")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getSENSeCORRection $(PORT) $(A)")    
+}
+
+#  INPut subsystem commands
+
+#  Measurement commands
+record(ai, "$(P)$(R)MeasurePower"){
+    field(DESC, "Sensor correction")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto MEASurePOWer $(PORT) $(A)")    
+}
