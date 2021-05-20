@@ -32,42 +32,49 @@ getWF {
 getSYSTemBEEPerState {
     out "SYSTem:BEEPer:STATe?";
     in "%d";
+    ExtraInput = Ignore;
 }
 
 ## Error
 getSYSTemErrorNext {
     out "SYSTem:ERRor:NEXT?";
     in "%d,%s";
+    ExtraInput = Ignore;
 }
 
 ## VERSion
 getSYSTemVersion {
     out "SYSTem:VERSion?";
     in "%s";
+    ExtraInput = Ignore;
 }
 
 ## Date
 getSYSTemDATE {
     out "SYSTem:DATE?";
     in "%s";
+    ExtraInput = Ignore;
 }
 
 ## Time
 getSYSTemTIME {
     out "SYSTem:TIME?";
     in "%s";
+    ExtraInput = Ignore;
 }
 
 ## LFR
 getSYSTemLFRenquency {
     out "SYSTem:LFRenquency?";
     in "%d";
+    ExtraInput = Ignore;
 }
 
 ## SENSor
 getSYSTemSENSorIDN {
     out "SYSTem:SENSor:IDN?";
     in "%s";
+    ExtraInput = Ignore;
 }
 
 # STATus subsystem commands
@@ -80,6 +87,7 @@ setDISPlayBRIGhtness {
 getDISPlayBRIGhtness {
     out "DISPlay:BRIGhtness?";
     in "%f";
+    ExtraInput = Ignore;
 }
 
 setDISPlayCONTrast {
@@ -89,6 +97,7 @@ setDISPlayCONTrast {
 getDISPlayCONTrast {
     out "DISPlay:CONTrast?";
     in "%f";
+    ExtraInput = Ignore;
 }
 
 # SENSe
@@ -100,6 +109,7 @@ setSENSeAVERage {
 getSENSeAVERage {
     out "SENSe:AVERage?";
     in "%d";
+    ExtraInput = Ignore;
 }
 
 ## CORRection
@@ -110,42 +120,72 @@ setSENSeCORRection {
 getSENSeCORRection {
     out "SENSe:CORRection:LOSS:INPut:MAGNitude?";
     in "%f";
+    ExtraInput = Ignore;
+}
+
+setSENSeCORRectionCOLLectZERo {
+    out "SENSe:CORRection:COLLect:ZERo";
+}
+
+getSENSeCORRectionCOLLectZERo {
+    out "SENSe:CORRection:COLLect:ZERo:MAGNitude?";
+    in "%f";
+    ExtraInput = Ignore;
+}
+
+setSENSeCORRectionWAVelength {
+    out "SENSe:CORRection:WAVelength %f";
+}
+
+getSENSeCORRectionWAVelength {
+    out "SENSe:CORRection:WAVelength?";
+    in "%f";
+    ExtraInput = Ignore;
 }
 
 #  Measurement commands
 MEASurePOWer {
-    in "MEASure:POWer";
-    out "%f";
+    out "MEASure:POWer?";
+    in "%f";
+    ExtraInput = Ignore;
 }
 MEASureCURRent {
-    in "MEASure:CURRent";
-    out "%f";
+    out "MEASure:CURRent?";
+    in "%f";
+    ExtraInput = Ignore;
 }
 MEASureVOLTage {
-    in "MEASure:VOLTage";
-    out "%f";
+    out "MEASure:VOLTage?";
+    in "%f";
+    ExtraInput = Ignore;
 }
 MEASureENERgy {
-    in "MEASure:ENERgy";
-    out "%f";
+    out "MEASure:ENERgy?";
+    in "%f";
+    ExtraInput = Ignore;
 }
 MEASureFREQuency {
-    in "MEASure:FREQuency";
-    out "%f";
+    out "MEASure:FREQuency?";
+    in "%f";
+    ExtraInput = Ignore;
 }
 MEASurePDENsity {
-    in "MEASure:PDENsity";
-    out "%f";
+    out "MEASure:PDENsity?";
+    in "%f";
+    ExtraInput = Ignore;
 }
 MEASureEDENsity {
-    in "MEASure:EDENsity";
-    out "%f";
+    out "MEASure:EDENsity?";
+    in "%f";
+    ExtraInput = Ignore;
 }
 MEASureRESistance {
-    in "MEASure:RESistance";
-    out "%f";
+    out "MEASure:RESistance?";
+    in "%f";
+    ExtraInput = Ignore;
 }
 MEASureTEMPerature {
-    in "MEASure:TEMPerature";
-    out "%f";
+    out "MEASure:TEMPerature?";
+    in "%f";
+    ExtraInput = Ignore;
 }

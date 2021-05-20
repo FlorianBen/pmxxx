@@ -8,21 +8,18 @@
 cd "${TOP}"
 epicsEnvSet "STREAM_PROTOCOL_PATH" "$(TOP)/db"
 
-# Adresse IP et port de l'alimentation
-epicsEnvSet "USB_PORT" "/dev/usbtmc0"
-
-# Prefix pour les macro
-epicsEnvSet "P" "M400:"
+# Macro prefix
+epicsEnvSet "P" "PM400:"
 epicsEnvSet "R" "CAL:"
 
 ## Register all support components
 dbLoadDatabase "dbd/PMXXX.dbd"
 PMXXX_registerRecordDeviceDriver pdbbase
 
-usbtmcConfigure("usbtmc0")
+usbtmcConfigure("usbtmc2")
 
 ## Load record instances
-dbLoadRecords("db/PMXXX.db","P=$(P),R=$(R),PORT=usbtmc0,A=0")
+dbLoadRecords("db/PMXXX.db","P=$(P),R=$(R),PORT=usbtmc2,A=0")
 
 
 cd "${TOP}/iocBoot/${IOC}"

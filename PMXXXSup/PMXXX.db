@@ -29,6 +29,7 @@ record(stringin, "$(P)$(R)SystemVersion")
     field(DESC, "System version string")
     field(DTYP, "stream")
     field(INP,  "@PMXXX.proto getSYSTemVersion $(PORT) $(A)")
+    field(PINI, "YES")
 }
 ## Error
 
@@ -42,6 +43,7 @@ record(stringin, "$(P)$(R)SensorIDN")
     field(DESC, "Sensor identification string")
     field(DTYP, "stream")
     field(INP,  "@PMXXX.proto getSYSTemSENSorIDN $(PORT) $(A)")
+    field(PINI, "YES")
 }
 
 # STATus subsystem commands
@@ -87,7 +89,8 @@ record(ao, "$(P)$(R)SensorAverage"){
 record(ai, "$(P)$(R)SensorAverage_RBV"){
     field(DESC, "Sensor averaging")
     field(DTYP, "stream")
-    field(INP,  "@PMXXX.proto getSENSeAVERage $(PORT) $(A)")    
+    field(INP,  "@PMXXX.proto getSENSeAVERage $(PORT) $(A)")
+    field(PINI, "YES")
 }
 
 ## Correction
@@ -101,7 +104,36 @@ record(ao, "$(P)$(R)SensorCorrection"){
 record(ai, "$(P)$(R)SensorCorrection_RBV"){
     field(DESC, "Sensor correction")
     field(DTYP, "stream")
-    field(INP,  "@PMXXX.proto getSENSeCORRection $(PORT) $(A)")    
+    field(INP,  "@PMXXX.proto getSENSeCORRection $(PORT) $(A)")
+    field(PINI, "YES")    
+}
+
+record(bo, "$(P)$(R)SensorZero"){
+    field(DESC, "Sensor correction")
+    field(DTYP, "stream")
+    field(FLNK, "$(P)$(R)SensorZero_RBV")
+    field(OUT,  "@PMXXX.proto setSENSeCORRectionCOLLectZERo $(PORT) $(A)")
+}
+
+record(ai, "$(P)$(R)SensorZero_RBV"){
+    field(DESC, "Sensor correction")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getSENSeCORRectionCOLLectZERo $(PORT) $(A)")
+    field(PINI, "YES")    
+}
+
+record(ao, "$(P)$(R)SensorWavelength"){
+    field(DESC, "Sensor correction")
+    field(DTYP, "stream")
+    field(FLNK, "$(P)$(R)SensorWavelength_RBV")
+    field(OUT,  "@PMXXX.proto setSENSeCORRectionWAVelength $(PORT) $(A)")
+}
+
+record(ai, "$(P)$(R)SensorWavelength_RBV"){
+    field(DESC, "Sensor correction")
+    field(DTYP, "stream")
+    field(INP,  "@PMXXX.proto getSENSeCORRectionWAVelength $(PORT) $(A)")
+    field(PINI, "YES")    
 }
 
 #  INPut subsystem commands
@@ -110,5 +142,9 @@ record(ai, "$(P)$(R)SensorCorrection_RBV"){
 record(ai, "$(P)$(R)MeasurePower"){
     field(DESC, "Sensor correction")
     field(DTYP, "stream")
-    field(INP,  "@PMXXX.proto MEASurePOWer $(PORT) $(A)")    
+    field(INP,  "@PMXXX.proto MEASurePOWer $(PORT) $(A)")
+    field(SCAN, ".1 second")
+    field(EGU, "W")
+    field(HOPR, 0.00005)
+    field(LOPR, 0)
 }
